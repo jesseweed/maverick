@@ -1,0 +1,34 @@
+## Set Rewrite Base
+
+## Auth Settings
+## AuthUserFile /var/www/.htpasswd
+## AuthType Basic
+## AuthName "My Secret Folder"
+## Require valid-user
+
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
+
+## DISABLE DIRECORY BROWSING
+Options -Indexes
+
+## SET SERVER TIMEZONE
+SetEnv TZ America/Los_Angeles
+
+## SECURE .HTACCESS FILE
+<Files .htaccess>
+  order allow,deny
+  deny from all
+</Files>
+
+## SET EXPIRES HEADERS
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf|woff|eot|ttf)$">
+  Header set Cache-Control "public"
+  Header set Expires "Thu, 15 Apr 2012 20:00:00 GMT"
+  Header unset ETag
+  FileETag None
+</FilesMatch>

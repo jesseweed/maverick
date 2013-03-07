@@ -1,0 +1,12 @@
+{
+    "framework": "jasmine",
+    "launch_in_dev": [
+        "PhantomJS"
+    ],
+    "src_files": [
+          "_assets/js/lib/chai.js",
+          "_assets/js/lib/head.js",
+          "_assets/js/*min.js",
+          "tests/**/*.js"
+    ]
+}
