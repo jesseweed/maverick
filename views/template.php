@@ -13,7 +13,7 @@
         if (!isset($data)) $data = array();
         $data = (object) $data;
 
-        if (!isset($data->page_title)) $data->page_title = 'InTandem';
+        if (!isset($data->page_title)) $data->page_title = 'Maverick - MVC';
         if (!isset($data->keywords)) $data->keywords = null;
         if (!isset($data->description)) $data->description = null;
         
