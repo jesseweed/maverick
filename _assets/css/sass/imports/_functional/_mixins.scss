@@ -1,0 +1,97 @@
+/* ==========================================================================
+   IMPORTS/_FUNCTIONAL/_MIXINS.SCSS
+========================================================================== */
+
+// BOX SHADOW
+@mixin box_shadow($horizontal, $vertical, $blur, $spread, $opacity) {
+	-moz-box-shadow: $horizontal $vertical $blur $spread rgba(0, 0, 0, $opacity);
+	-webkit-box-shadow: $horizontal $vertical $blur $spread rgba(0, 0, 0, $opacity);
+	box-shadow: $horizontal $vertical $blur $spread rgba(0, 0, 0, $opacity);
+}
+
+// GRADIENTS
+
+	// VERTICAL
+	@mixin gradient($color1,$color2) {
+		background-color: $color1;
+		background: -webkit-gradient(linear, left top, left bottom, from($color1), to($color2));
+		background-image: -webkit-linear-gradient(top, $color1, $color2);
+		background: -moz-linear-gradient(top,  $color1, $color2);
+		background-image: -moz-linear-gradient(top, $color1, $color2);
+		background-image: -ms-linear-gradient(top, $color1, $color2);
+		background-image: -o-linear-gradient(top, $color1, $color2);
+	}
+
+	// HORIZONTAL
+	@mixin gradient-horizontal($color1,$color2) {
+		background-color: $color1;
+		background: -webkit-gradient(linear, left top, right top, from($color1), to($color2));
+		background-image: -webkit-linear-gradient(left, $color1, $color2);
+		background: -moz-linear-gradient(left,  $color1, $color2);
+		background-image: -ms-linear-gradient(left, $color1, $color2);
+		background-image: -o-linear-gradient(left, $color1, $color2);
+	}
+
+// BORDER RADIUS
+
+	// ALL
+	@mixin round($n) {
+		-webkit-border-radius: $n;
+		-moz-border-radius: $n;
+		border-radius: $n;
+	}
+
+	// LEFT
+	@mixin round_left($n) {
+		-webkit-border-top-left-radius: $n;
+		-moz-border-top-left-radius: $n;
+		border-top-left-radius: $n;
+		-webkit-border-bottom-left-radius: $n;
+		-moz-border-bottom-left-radius: $n;
+		border-bottom-left-radius: $n;
+	}
+
+	// TOP LEFT
+	@mixin round_top_left($n) {
+		-webkit-border-top-left-radius: $n;
+		-moz-border-top-left-radius: $n;
+		border-top-left-radius: $n;
+	}
+
+	// BOTTOM LEFT
+	@mixin round_bottom_left($n) {
+		-webkit-border-bottom-left-radius: $n;
+		-moz-border-bottom-left-radius: $n;
+		border-bottom-left-radius: $n;
+	}
+
+	// RIGHT
+	@mixin round_right($n) {
+		-webkit-border-top-right-radius: $n;
+		-moz-border-top-right-radius: $n;
+		border-top-right-radius: $n;
+		-webkit-border-bottom-right-radius: $n;
+		-moz-border-bottom-right-radius: $n;
+		border-bottom-right-radius: $n;
+	}
+
+	// TOP RIGHT
+	@mixin round_top_right($n) {
+		-webkit-border-top-right-radius: $n;
+		-moz-border-top-right-radius: $n;
+		border-top-right-radius: $n;
+	}
+
+	// BOTTOM RIGHT
+	@mixin round_bottom_right($n) {
+		-webkit-border-bottom-right-radius: $n;
+		-moz-border-bottom-right-radius: $n;
+		border-bottom-right-radius: $n;
+	}
+
+// TRANSITIONS
+@mixin transition($type, $time) {
+	transition: $type, $time ease-in-out;
+	-moz-transition: $type, $time ease-in-out;
+	-webkit-transition: $type, $time ease-in-out;
+}

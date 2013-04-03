@@ -1,0 +1,57 @@
+/* ==========================================================================
+   IMPORTS/_FUNCTIONAL/_VARIABLES.SCSS
+========================================================================== */
+
+/* Colors - work in progress */
+
+$color-primary : #ff5500; // persimmon
+$color-secondary : #323232; // coal
+$color-tertiary : #b3b3b3; // pussy-willow
+$color-quaternary : #f0f0f0; // willow
+$color-base : $color-secondary;
+
+$color-white : #FFFFFF;
+$color-white-text : $color-base;
+$color-base-text : $color-white;
+
+$color-primary-dark : #d34500;
+$color-primary-text : $color-white;
+
+$color-complimentary : #008CD0;
+$color-complimentary-text : #FFF;
+
+$color-secondary-dark : #52C0E9;
+$color-secondary-text : $color-white;
+
+$color-grey : #d8d8d8;
+$color-grey-dark : #b3b3b3; // pussy-willow
+$color-grey-light : #f0f0f0; // wool
+$color-grey-text : $color-white;
+
+$font-color : #B2B4B4;
+
+$color-bad : #CE321D;
+$color-bad-dark : #AF2824;
+$color-bad-text : $color-white;
+
+$color-good : #54B847;
+$color-good-dark : #4C9944;
+$color-good-text : $color-white;
+
+$color-warning : #E9B510;
+$color-warning-dark : #E19A25;
+$color-warning-text : $color-white;
+
+$color-info : $color-secondary;
+$color-info-dark : $color-secondary-dark;
+$color-info-text : $color-white;
+
+/* Other colors */
+$color-border : rgba(0,0,0,0.15);
+$color-border-light : #eee;
+
+/* Button Colors */
+$color-btn : #ff5500;
+$color-btn-text : #FFFFFF;
+$color-btn-sec : lighten($color-secondary,15%);
+$color-btn-sec-text : #FFF;
