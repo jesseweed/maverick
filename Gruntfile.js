@@ -19,17 +19,28 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        concat: {
+            options: {
+                
+            },
+            build: {
+                src: [
+                '_assets/js/*.js',
+                '!_assets/js/app.min.js',
+                '!_assets/js/app.concat.js'
+                ],
+                dest: '_assets/js/app.concat.js'
+            }
+        },
         uglify: {
             options: {
                 banner: '/*! <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd HH:MM") %> */\n'
             },
             build: {
                 src: [
-                '_assets/js/app.js',
-                '_assets/js/geo.js',
-                '_assets/js/locate.js',
-                '_assets/js/maps.js',
-                '_assets/js/verify.js'
+                '_assets/js/*.js',
+                '!_assets/js/app.min.js',
+                '!_assets/js/app.concat.js'
                 ],
                 dest: '_assets/js/app.min.js'
             }
@@ -48,22 +59,23 @@ module.exports = function (grunt) {
         },        
         watch: {
             js: {
-                files: ['_assets/js/*.js', '!js/main.compiled.js'],
-                tasks: ['uglify']
+                files: ['_assets/js/*.js', '!_assets/js/app.concat.js', '!_assets/js/app.min.js'],
+                tasks: ['concat', 'uglify']
             },
             sass: {
-                files: ['_assets/css/**/*.scss'],
+                files: ['_assets/css/**/**/*.scss'],
                 tasks: ['sass']
             }
         }
     });
     
     // NPM tasks
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Grunt tasks
-    grunt.registerTask('default', ['uglify', 'sass']);
+    grunt.registerTask('default', ['uglify', 'sass', 'concat']);
 
 };
