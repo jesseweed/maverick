@@ -13,8 +13,6 @@ head.ready(function () {
     "use strict";
 
     App.init();
-    
-    // ImageHD.load();
 
 });
 
@@ -29,6 +27,8 @@ App = {
 
         "use strict";
 
+        // ImageHD.load(); //retinafy images
+        
         App.log('main.js loaded.');
 
     }, // End : init
