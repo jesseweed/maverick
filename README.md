@@ -13,6 +13,10 @@ You can pass an array of data to view by passing an additional 2nd parameter, so
 `$data->message = "Hello World"`
 `$load->view('views/name/index', $data);`
 
+### MODELS
+Models still need some work, this is mostly useful for some basic controller/view routing at the moment.
+
+
 ### REQUIREMENTS
 The only dependencies are that you have mod_rewrite is enabled on your server for the .htaccess file to do it's magic and make the routing work correctly.
 
