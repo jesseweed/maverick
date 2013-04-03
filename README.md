@@ -22,7 +22,7 @@ The only dependencies are that you have mod_rewrite is enabled on your server fo
 
 
 ### KNOWN ISSUES
-This I've only done limited testing on this, controllers & views seem to be stable, but models are still a work in progress.
+I've only done limited testing on this, controllers & views seem to be stable, but models are still a work in progress.
 
 
 
