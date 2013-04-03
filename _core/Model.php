@@ -17,13 +17,9 @@ class DB {
         public function __construct() {
 
             // DB Config
-            $this->db_name = 'tradecraft';
-            $this->server = 'mongodb://tradecraft:rosebud@linus.mongohq.com:10076/' . $this->db_name;
+            $this->db_name = '';
+            $this->server = '';
             $this->timeout = 1000;
-
-            // Collections
-            $this->users = 'users';
-            $this->pages = 'pages';
 
         }
 
@@ -90,32 +86,6 @@ class DB {
         }
 
 
-        // UPDATE
-        function update($db, $key, $value) {
-            
-            $status = new stdClass;
-
-            // attempt to edit user info
-            try {
-
-                $this->db->{$db}->update(
-                    array('username' => $data['username']),
-                    array('$set' => $data)
-                );
-
-                $status->status = 'success';
-                $status->status_msg = 'Data has been succesfully updated.';
-
-            // fail if attempt was unsuccessful
-            } catch(MongoCursorException $e) {
-                $status->status = 'failure';
-                $status->status_msg = $e->getMessage();
-            }
-
-            return $status;
-        }
-
-
         // EXISTS
         function exists($db, $key, $value) {
 
@@ -129,75 +99,5 @@ class DB {
 
 
         }
-
-
-
-        /* = = = = = = = = = = = = = = = = = #
-    
-        C. USER ACTIONS
-        Interact with user collection
-        
-        # = = = = = = = = = = = = = = = = = */
-
-        // CREATE
-        function create_user($data) {
-
-            
-            if ($this->exists($this->users, 'username', $data['username']) === false) :
-                try {
-                    return $this->db->{$this->users}->insert($data);
-                } catch(MongoCursorException $e) {
-                    return $e->getMessage();
-                }
-            else :
-                return 'record already exists';
-            endif;
-
-
-        }
-
-        // get user info
-        function get_user($id, $search_type = 'username') {
-            $data =  $this->db->selectCollection($this->users);
-            return $data->findOne(array($search_type => $id));
-        }
-
-
-
-
-
-        /* = = = = = = = = = = = = = = = = = #
-    
-        D. PAGE ACTIONS
-        Interact with user collection
-        
-        # = = = = = = = = = = = = = = = = = */
-
-        // UPDATE
-        function update_page($page, $data) {
-            
-            $status = new stdClass;
-
-            // attempt to edit user info
-            try {
-
-                $this->db->{$this->pages}->update(
-                    array('page' => $page),
-                    array('$set' => $data)
-                );
-
-                $status->status = 'success';
-                $status->status_msg = 'Data has been succesfully updated.';
-
-            // fail if attempt was unsuccessful
-            } catch(MongoCursorException $e) {
-                $status->status = 'failure';
-                $status->status_msg = $e->getMessage();
-            }
-
-            return $status;
-        }
-
-
 
 }
