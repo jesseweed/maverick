@@ -29,3 +29,7 @@ I've only done limited testing on this, controllers & views seem to be stable, b
 ##Development Team
 
 * Jesse Weed - ([http://jesseweed.com](http://jesseweed.com))
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/jesseweed/maverick/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
