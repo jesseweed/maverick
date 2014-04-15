@@ -1,5 +1,5 @@
-## Node Boilerplate
-A super barebones mvc framework for php.
+## Maverick
+A super barebones mvc style micro-framework for php.
 
 ### CONTROLERS
 Routes map to controllers with matching name in /controlers. For example, domain.com/hello will map to controllers/hello.php or controllers/hello/index.php, domain.com/hello/world will map to either controllers/hello/world.php or controllers/hello/world/index.php. To access views, include the following snippet at the top of the file: `$load = new Load();`
